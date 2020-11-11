@@ -97,7 +97,7 @@ public class FileSystem {
         IFile copingFile = findFileOrDir(pathFrom);
         IFile to = findFileOrDir(pathTo);
         if(copingFile != null){
-            ((Directory)copingFile.getParent()).remove(copingFile.getFileName());
+          ((Directory)copingFile.getParent()).remove(copingFile.getFileName());
 
             if(to == null){
                 rootDir.add(copingFile);
@@ -193,6 +193,7 @@ public class FileSystem {
                 return false;
             }else {
                 ((Directory)(file.getParent())).remove(file.getFileName());
+                freeClustersTable[((Directory)file).getAddressInStore()] = true;
                 return true;
             }
         }
